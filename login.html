@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Trics to click</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+   <style>
+    #bod{
+        background-image: url("login backg.jpeg");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .logo{
+    height: 70px;
+    width: 150px;
+    cursor: pointer; 
+}
+</style>  
+</head>
+<body id="bod">
+    <img class="logo" src="logomain1.png">
+	<div class="container vh-100">
+		<div class="row justify-content-center h-100">
+			<div class="card w-25 my-auto shadow">
+				<div class="card-header text-center bg-primary text-white">
+					<h2>Login form</h2>
+				</div>
+				<div class="card-body">
+					<form action="login.php" method="post">
+						<div class="form-group">
+							<label for="email">Email</label>
+							<input type="email" id="email" class="form-control" name="email" required />
+						</div>
+						<div class="form-group">
+							<label for="password">Password</label>
+							<input type="password" id="password" class="form-control" name="password" />
+						</div>
+						<input type="submit" class="btn btn-primary w-100" value="Login" name="">
+					</form>
+				</div>
+				<div class="card-footer text-right">
+					<small>&copy; Trick to Click</small>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

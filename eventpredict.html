@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Event Predictor</title>
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+}
+
+form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+label {
+  margin-right: 0.5em;
+}
+
+  </style>
+</head>
+<body>
+  <h1>Event Predictor</h1>
+  <form>
+    <label>Enter a year:</label>
+    <input type="text" id="yearInput" placeholder="e.g. 2020">
+    <button type="button" id="predictButton" onclick="predictEvents()">Predict Events</button>
+  </form>
+  <br>
+  <div id="eventsDisplay"></div>
+  
+  <script>
+    const events = {
+  2020: ['COVID-19 pandemic begins', 'US Presidential election', 'Australian bushfires', 'Death of basketball player Kobe Bryant'],
+  2021: ['Capitol riot in Washington DC', 'Introduction of Covid-19 vaccines', 'Murder trial and conviction of Derek Chauvin'],
+  2022: ['FIFA World Cup in Qatar', 'Midterm elections in the US', 'Opening of the Burj Khalifa Tower in Dubai']
+};
+
+function predictEvents() {
+  const year = document.getElementById('yearInput').value;
+  const eventsDisplay = document.getElementById('eventsDisplay');
+  eventsDisplay.innerHTML = '';
+
+  if (!events[year]) {
+    eventsDisplay.innerHTML = 'Invalid year or no events found.';
+    return;
+  }
+
+  const eventList = document.createElement('ul');
+  events[year].forEach(event => {
+    const eventItem = document.createElement('li');
+    eventItem.innerHTML = event;
+    eventList.appendChild(eventItem);
+  });
+  eventsDisplay.appendChild(eventList);
+
+  // Speak events
+  const speech = new SpeechSynthesisUtterance();
+  speech.text = events[year].join(', ');
+  speechSynthesis.speak(speech);
+}
+
+  </script>
+</body>
+</html>
